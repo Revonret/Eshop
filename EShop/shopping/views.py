@@ -10,16 +10,16 @@ def categories(request):
 
 
 def shop(request):
-    products = Product.products.all()
+    products = Product.objects.all()
     return render(request, 'home.html', {'products': products})
-
-
-def category_list(request, category_slug=None):
-    category = get_object_or_404(Category, slug=category_slug)
-    products = Product.objects.filter(category=category)
-    return render(request, 'shopping/category.html', {'category': category, 'products': products})
 
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    return render(request, 'shopping/detail.html', {'product': product})
+    return render(request, 'detail.html', {'product': product})
+
+
+def category_list(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    products = Product.objects.filter(category=category)
+    return render(request, 'category.html', {'category': category, 'products': products})
