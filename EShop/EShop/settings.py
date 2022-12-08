@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopping.apps.ShoppingConfig',
+    'basket.apps.BasketConfig',
     'crispy_forms',
     'crispy_bootstrap5',
 ]
@@ -65,7 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'shopping.views.categories'
+                'shopping.views.categories',
+                'basket.views.basket'
             ],
         },
     },

@@ -2,9 +2,12 @@
 {% load static %}
 {% block title %}
   {% if Category %}
-  {{ category.name }}
-  {% else %}Products{% endif %}
-  {% endblock %}
+    {{ category.name }}
+  {% else %}
+    Products
+  {% endif %}
+{% endblock %}
+
 {% block content %}
 
 
