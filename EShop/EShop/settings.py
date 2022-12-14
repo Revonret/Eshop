@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shopping.apps.ShoppingConfig',
     'basket.apps.BasketConfig',
+    'user.apps.UserConfig',
+    'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
     'crispy_forms',
     'crispy_bootstrap5',
 ]
@@ -144,3 +147,9 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
+AUTH_USER_MODEL = 'user.UserBase'
+LOGIN_REDIRECT_URL = '/user/dashboard'
+LOGIN_URL = '/user/login/'
+
+# Email setting
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

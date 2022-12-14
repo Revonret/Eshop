@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import CASCADE
-from django.contrib.auth.models import User
 from django.urls import reverse
+from django.conf import settings
 
 
 class Category(models.Model):
@@ -30,27 +30,5 @@ class Product(models.Model):
         return self.product_name
 
 
-class Cart(models.Model):
-    users = models.ForeignKey(User, on_delete=CASCADE)
-    created = models.DateTimeField(auto_now_add=True)
-    product_list = models.ManyToManyField(Product)
-
-
-class ProductInCart(models.Model):
-    products = models.ForeignKey(Product, on_delete=CASCADE)
-    carts = models.ForeignKey(Cart, on_delete=CASCADE)
-    amount = models.IntegerField()
-
-
-class Order(models.Model):
-    product_list = models.ManyToManyField(Product),
-    users = models.ForeignKey(User, on_delete=CASCADE)
-    created_data = models.DateTimeField(auto_now_add=True)
-
-
-class ProductsInOrder(models.Model):
-    product = models.ForeignKey(Product, on_delete=CASCADE)
-    orders = models.ForeignKey(Order, on_delete=CASCADE)
-    amount = models.IntegerField()
 
 

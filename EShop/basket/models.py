@@ -3,7 +3,7 @@ from decimal import Decimal
 from shopping.models import Product
 
 
-class Basket():
+class Basket:
     def __init__(self, request):
         self.session = request.session
         basket = self.session.get('skey')
