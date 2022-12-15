@@ -28,14 +28,15 @@ def BasketView(request):
     total = total.replace('.', '')
     total = int(total)
 
-    stripe.api_key = ''
-    intent = stripe.PaymentIntent.create(
-        amount=total,
-        currency='pln',
-        metadata={'userid': request.user.id}
-    )
+    # Po kursie ogarnąć sprawę płatności do końca
+    # stripe.api_key = 'pk_test_51MEuyPGJF18TFMYk5BCsGAFafmbIB25yQnhH16MMvhjzIHjO0xjvbqPkjGCzhIl1u00nhJg254bo0pqGgW5UoN7W00XcQvrY5l'
+    # intent = stripe.PaymentIntent.create(
+    #     amount=total,
+    #     currency='pln',
+    #     metadata={'userid': request.user.id}
+    # ) {'client_secret': intent.client_secret}
 
-    return render(request, 'home.html', {'client_secret': intent.client_secret})
+    return render(request, 'home.html', )
 
 
 @csrf_exempt
